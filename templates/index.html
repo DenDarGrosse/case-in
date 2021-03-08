@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #EBF3F9;
+        }
+        .block {
+            display: block;
+            overflow-x: auto;
+            overflow-y: auto;
+            padding: .5em;
+            background: #FCF6DB;
+            border: 1px solid #E5E0C6;
+            width: auto;
+            height: 500px;
+            margin: 10px;
+            margin-right: 2%;
+        }
+
+        #blockButton .btn {
+            margin: 10px;
+        }
+
+        #blockButton {
+            overflow-y: auto;
+            height: 300px;
+        }
+
+    </style>
+</head>
+<body>
+<p>Доступные запросы:</p>
+<div id="blockButton"></div>
+
+<div class="block" id="resultQuery">
+    Вывод результата запроса:
+</div>
+
+<script src="../static/js/main_index.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger ReST Article
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+paths:
+  /login:
+    post:
+      operationId: routes.login
+      tags:
+        - authorization
+      summary: Authorization
+      description: Authorizate a person in system
+      parameters:
+        - name: logindata
+          in: body
+          required: True
+          schema:
+            type: object
+            properties:
+              login:
+                type: string
+              password:
+                type: string
+      responses:
+        200:
+          description: Successfully signed in
+
+  /logout:
+    get:
+      operationId: routes.logout
+      tags:
+        - authorization
+      summary: logout
+      description: Logout a person in system
+      responses:
+        200:
+          description: Successfully logged out
+
+  /register:
+    post:
+      operationId: routes.register
+      tags:
+        - authorization
+      summary: registration
+      description: Registrate person
+      parameters:
+        - name: user_data
+          in: body
+          required: True
+          schema:
+            type: object
+            properties:
+              login:
+                type: string
+              password:
+                type: string
+              role:
+                type: string
+      responses:
+        200:
+          description: Successfully registered
+
+  /request:
+    post:
+      operationId: routes.execute_request
+      tags:
+        - requests
+      summary: execute request
+      description: execute request
+      parameters:
+        - name: request_data
+          in: body
+          required: True
+          schema:
+            type: object
+            properties:
+              request_name:
+                type: string
+              args_arr:
+                type: string
+      responses:
+        200:
+          description: Successfully logged out
+
+    get:
+      operationId: routes.get_all_requests
+      tags:
+        - requests
+      summary: get all requests
+      description: get all requests
+      responses:
+        200:
+          description: All requests in database
+
+  /predict:
+    post:
+      operationId: routes.predict
+      tags:
+        - predict
+      summary: predict failures
+      description: predict failures
+      parameters:
+        - name: predict_data
+          in: body
+          required: True
+          schema:
+            type: object
+            properties:
+              machineId:
+                type: number
+              first_date:
+                type: string
+              last_date:
+                type: string
+      responses:
+        200:
+          description: Successfully predicted on given period
